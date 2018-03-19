@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.canvas-div {
+  margin-bottom: 10px;
+}
+
+.canvas-div canvas {
+  border: 1px solid #000000;
+}
+
+button {
+  font-size: 16px;
+  width: 170px;
+  border-radius: 8px;
+  padding: 5px 10px;
+  outline: none;
+  background-color: #e7e7e7;
+}
+
+input {
+  font-size: 16px;
+  width: 170px;
+}
+
+select {
+  font-size: 16px;
+  width: 170px;
+  outline: none;
+}
+
+#colorChoose {
+  background-color: blue;
+  color: white;
+}
+
+#rivetColor {
+  background-color: red;
+  color: white;
+}
+
+#outlineColor {
+  background-color: gray;
+  color: white;
+}
+
+.selected {
+  background-color: blue;
+  color: white;
+}
+
+h1, h2, h3 {
+  font-style: italic;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.controls {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+}
+
+.control-row {
+  margin-bottom: 5px;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.help {
+  font-size: 75%;
+  color: red;
+}
+
+input[type=checkbox] {
+  /*width: 10px;*/
+}
+
+#fractalRatio, #fractalIterations {
+  width: 50px;
+}

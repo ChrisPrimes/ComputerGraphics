@@ -1,0 +1,93 @@
+<html>
+
+<head>
+  <title>Ipsalege Wheels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <table class="controls">
+    <tr>
+      <td style="width:400px;">
+        <h1 class="text-center mb-0">Ipsalege Wheels</h1>
+        <h3 class="text-center mt-0">Chris Primes</h3>
+      </td>
+      <td style="width:400px;">
+        <h3 class="text-center"><span class="highlight" id="instruction">Specify the driving score!</span></h3>
+      </td>
+    </tr>
+  </table>
+
+  <div class="canvas-div text-center">
+    <canvas id="chrisCanvas" width="700" height="450"></canvas>
+  </div>
+
+  <div class="controls text-center">
+
+    <div class="control-row">
+      Driving Score <input type="text" id="txtScore"> <span class="help">*Value between 3 and 100</span>
+    </div>
+
+    <div class="control-row">
+      Wheel color
+      <select id="colorChoose">
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="black">Black</option>
+        <option value="orange">Orange</option>
+        <option value="hotpink">Pink</option>
+        <option value="gray">Gray</option>
+        <option value="navy">Navy</option>
+      </select>
+
+      &nbsp;Gradient
+      <input type="checkbox" id="grd">
+    </div>
+
+    <div class="control-row">
+      Bolt color
+      <select id="rivetColor">
+        <option value="blue">Blue</option>
+        <option selected value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="black">Black</option>
+        <option value="orange">Orange</option>
+        <option value="hotpink">Pink</option>
+        <option value="gray">Gray</option>
+        <option value="navy">Navy</option>
+      </select>
+
+      &nbsp;Outline color
+      <select id="outlineColor">
+        <option value="none">None</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="black">Black</option>
+        <option value="orange">Orange</option>
+        <option value="hotpink">Pink</option>
+        <option value="gray">Gray</option>
+        <option value="navy">Navy</option>
+      </select>
+    </div>
+
+    <div class="control-row">
+      Wheel thickness
+      <input type="range" id="thicknessChoose" min="20" max="60" value="35" step="1">
+      &nbsp;
+      Outline thickness
+      <input type="range" id="outlineThickness" min="1" max="10" value="8" step="1">
+    </div>
+
+    <div class="control-row">
+      <button type="button" id="btnDrawWheel">Draw the wheel</button>
+      <button type="button" id="btnClearCanvas">Clear</button>
+    </div>
+
+  </div>
+
+  <script src="wheel.js"></script>
+</body>
+
+</html>
