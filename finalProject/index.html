@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title>Project</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    #table-full {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #table-full td {
+      vertical-align: top;
+      padding: 0;
+      margin: 0;
+    }
+
+    .td-sm {
+      width: 30%;
+      background-color: lightblue;
+    }
+
+    .td-lg {
+      style="width: 70%;
+
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    hr {
+      background-color: black;
+      height: 2px;
+      border: 0;
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .controls {
+      padding-top: 10px;
+    }
+
+    table.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="table-full">
+    <tr>
+      <td class="td-lg">
+        <div id="canvas-div">
+        </div>
+      </td>
+      <td class="td-sm">
+        <h1 class="text-center" style="margin-bottom:0; padding-bottom:0;"> Graphics Project </h1>
+        <h3 class="text-center" style="margin-top:0; padding-top:0;"> Chris Primes </h3>
+        <hr>
+        <div class="text-center">
+          <h3 style="padding-bottom:8px; margin-bottom:0; padding-top:8px; margin-top:0;">Draw an Object</h3>
+
+          <div>
+            <select id="chooseObjDraw">
+              <option value="house">House</option>
+              <!--<option value="car">Car</option>-->
+              <option value="box">Box</option>
+              <option value="sphere">Sphere</option>
+              <option value="shape">Custom Shape</option>
+            </select>
+          </div>
+
+          <div id="draw-house-controls" class="controls chooseobjdraw-controls">
+            <button type="button" id="draw-house">Draw House!</button>
+          </div>
+
+          <div id="draw-car-controls" class="controls chooseobjdraw-controls d-none">
+            <button type="button" id="draw-car">Draw Car!</button>
+          </div>
+
+          <div id="draw-box-controls" class="controls chooseobjdraw-controls d-none">
+            <table class="center">
+              <tr>
+                <td>X Length&nbsp;</td>
+                <td><input type="text" id="draw-box-xlength"></td>
+              </tr>
+              <tr>
+                <td>Y Length&nbsp;</td>
+                <td><input type="text" id="draw-box-ylength"></td>
+              </tr>
+              <tr>
+                <td>Z Length&nbsp;</td>
+                <td><input type="text" id="draw-box-zlength"></td>
+              </tr>
+            </table>
+            <button type="button" id="draw-box">Draw Box!</button>
+          </div>
+
+          <div id="draw-sphere-controls" class="controls chooseobjdraw-controls d-none">
+            <table class="center">
+              <tr>
+                <td>Radius&nbsp;</td>
+                <td><input type="text" id="draw-sphere-radius"></td>
+              </tr>
+            </table>
+            <button type="button" id="draw-sphere">Draw Sphere!</button>
+          </div>
+
+          <div id="draw-shape-controls" class="controls chooseobjdraw-controls d-none">
+            <i>Enter XY coordinates of a 2D shape, and specify the depth.  Each coordinate should be specified on a new line.</i>
+            <table class="center">
+              <tr>
+                <td>Coordinates&nbsp;</td>
+                <td><textarea rows="10" cols="20" id="draw-shape-coordinates">
+(0,0)
+(10, 10)
+(15, 10)
+(10, 15)
+(0,0)</textarea></td>
+              </tr>
+              <tr>
+                <td>Depth&nbsp;</td>
+                <td><input type="text" id="draw-shape-depth"></td>
+              </tr>
+            </table>
+            <button type="button" id="draw-shape">Draw Shape!</button>
+          </div>
+
+          <hr>
+          <h3 style="padding-bottom:8px; margin-bottom:0; padding-top:8px; margin-top:0;">Edit an Object</h3>
+          <div>
+            <select id="chooseObjEdit">
+              </select>
+          </div>
+          <div class="controls">
+            <!--<button type="button" id="toggleXRotation">Toggle X Axis Rotation</button>-->
+            <!--<button type="button" id="toggleYRotation">Toggle Y Axis Rotation</button>-->
+            <!--<button type="button" id="toggleZRotation">Toggle Z Axis Rotation</button>-->
+            <button type="button" id="remove-selected">Clear Selected</button>
+            <button type="button" id="remove-all">Clear All</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <script src="three.js"></script>
+  <script src="Detector.js"></script>
+  <script src="OrbitControls.js"></script>
+  <script src="draw.js"></script>
+  <script src="utils.js"></script>
+</body>
+
+</html>
