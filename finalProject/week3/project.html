@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title>Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <table id="table-full">
+    <tr>
+      <td class="td-lg">
+        <div id="canvas-div">
+        </div>
+      </td>
+      <td class="td-sm">
+        <div class="scrollable">
+          <h1 class="text-center" style="margin-bottom:0; padding-bottom:0;"> Graphics Project </h1>
+          <h3 class="text-center" style="margin-top:0; padding-top:0;"> Chris Primes </h3>
+          <hr>
+          <div class="text-center">
+            <h3 style="padding-bottom:8px; margin-bottom:0; padding-top:8px; margin-top:0;">Draw an Object</h3>
+
+            <div>
+              <select id="chooseObjDraw">
+                <option value="house">House</option>
+                <!--<option value="car">Car</option>-->
+                <option value="box">Box</option>
+                <option value="sphere">Sphere</option>
+                <option value="cylinder">Cylinder</option>
+                <option value="shape">Custom Shape</option>
+              </select>
+            </div>
+
+            <div id="draw-house-controls" class="controls chooseobjdraw-controls">
+              <div class="controls">
+                <button type="button" id="draw-house">Draw House!</button>
+              </div>
+            </div>
+
+            <div id="draw-car-controls" class="controls chooseobjdraw-controls d-none">
+              <button type="button" id="draw-car">Draw Car!</button>
+            </div>
+
+            <div id="draw-cylinder-controls" class="controls chooseobjdraw-controls d-none">
+              <table class="center">
+                <tr>
+                  <td>Top Radius&nbsp;</td>
+                  <td><input type="text" id="draw-cylinder-topradius">  <span class="smallertxt">(Between 1 and 20)</span></td>
+                </tr>
+                <tr>
+                  <td>Bottom Radius&nbsp;</td>
+                  <td><input type="text" id="draw-cylinder-bottomradius">  <span class="smallertxt">(Between 1 and 20)</span></td>
+                </tr>
+                <tr>
+                  <td>Height&nbsp;</td>
+                  <td><input type="text" id="draw-cylinder-height"> <span class="smallertxt">(Between 1 and 20)</span></td>
+                </tr>
+              </table>
+              <div class="controls">
+                <button type="button" id="draw-cylinder">Draw Cylinder!</button>
+              </div>
+            </div>
+
+            <div id="draw-box-controls" class="controls chooseobjdraw-controls d-none">
+              <table class="center">
+                <tr>
+                  <td>X Length&nbsp;</td>
+                  <td><input type="text" id="draw-box-xlength"> <span class="smallertxt">(Between 1 and 20)</span></td>
+                </tr>
+                <tr>
+                  <td>Y Length&nbsp;</td>
+                  <td><input type="text" id="draw-box-ylength"> <span class="smallertxt">(Between 1 and 20)</span></td>
+                </tr>
+                <tr>
+                  <td>Z Length&nbsp;</td>
+                  <td><input type="text" id="draw-box-zlength"> <span class="smallertxt">(Between 1 and 20)</span></td>
+                </tr>
+              </table>
+              <div class="controls">
+                <button type="button" id="draw-box">Draw Box!</button>
+              </div>
+            </div>
+
+            <div id="draw-sphere-controls" class="controls chooseobjdraw-controls d-none">
+              <table class="center">
+                <tr>
+                  <td>Radius&nbsp;</td>
+                  <td><input type="text" id="draw-sphere-radius"> <span class="smallertxt">(Between 1 and 20)</span></td>
+                </tr>
+              </table>
+              <div class="controls">
+                <button type="button" id="draw-sphere">Draw Sphere!</button>
+              </div>
+            </div>
+
+            <div id="draw-shape-controls" class="controls chooseobjdraw-controls d-none">
+              <div class="helptext">Enter XY coordinates of a 2D shape, and specify the depth. Each coordinate should be specified on a new line. Coordinates should begin and end at (0, 0).</div>
+              <table class="center">
+                <tr>
+                  <td>Coordinates&nbsp;</td>
+                  <td><textarea rows="10" cols="20" id="draw-shape-coordinates">
+(0, 0)
+(0, 10)
+(2, 6)
+(6, 6)
+(8, 10)
+(8, 0)
+(6, 4)
+(2, 4)
+(0, 0)</textarea></td>
+                </tr>
+                <tr>
+                  <td>Depth&nbsp;</td>
+                  <td><input type="text" id="draw-shape-depth"></td>
+                </tr>
+                <tr>
+                  <td>Bevel&nbsp;</td>
+                  <td><input type="checkbox" id="draw-shape-bevel"></td>
+                </tr>
+              </table>
+              <div class="controls">
+                <button type="button" id="draw-shape">Draw Shape!</button>
+              </div>
+            </div>
+
+            <hr style="margin-top:16px;">
+
+            <h3 style="padding-bottom:8px; margin-bottom:0; padding-top:8px; margin-top:0;">Change the View</h3>
+            <div class="helptext smallertxt">The camera controls will only adjust the angled view when in four camera view mode.</div>
+            <div class="controls">
+              <button type="button" id="oneView" class="pad-bottom">One Camera View</button>
+              <button type="button" id="fourView" class="selected pad-bottom">Four Camera View</button>
+            </div>
+
+            <div class="container">
+              <div class="item">
+                <div class="controls">
+                  <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Move the camera</h4>
+                  <button type="button" class="pad-bottom" id="increaseXcamera">X +</button>
+                  <button type="button" class="pad-bottom" id="decreaseXcamera">X -</button><br>
+                  <button type="button" class="pad-bottom" id="increaseYcamera">Y +</button>
+                  <button type="button" class="pad-bottom" id="decreaseYcamera">Y -</button><br>
+                  <button type="button" class="pad-bottom" id="increaseZcamera">Z +</button>
+                  <button type="button" class="pad-bottom" id="decreaseZcamera">Z -</button>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="controls">
+                  <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Rotate the camera</h4>
+                  <button type="button" class="pad-bottom" id="increaseXcameraRot">X +</button>
+                  <button type="button" class="pad-bottom" id="decreaseXcameraRot">X -</button><br>
+                  <button type="button" class="pad-bottom" id="increaseYcameraRot">Y +</button>
+                  <button type="button" class="pad-bottom" id="decreaseYcameraRot">Y -</button><br>
+                  <button type="button" class="pad-bottom" id="increaseZcameraRot">Z +</button>
+                  <button type="button" class="pad-bottom" id="decreaseZcameraRot">Z -</button>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="controls">
+                  <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Camera Zoom</h4>
+                  <button type="button" class="pad-bottom" id="cameraZoomIn">+</button>
+                  <button type="button" class="pad-bottom" id="cameraZoomOut">-</button><br>
+                </div>
+              </div>
+            </div>
+
+            <hr style="margin-top:16px;">
+
+            <h3 style="padding-bottom:8px; margin-bottom:0; padding-top:8px; margin-top:0;">Edit an Object</h3>
+            <div>
+              <select id="chooseObjEdit">
+                </select>
+              <br>
+              <button type="button" class="btn-link" id="createGroup">Create object group</button>
+            </div>
+            <div class="controls">
+
+              <div class="container">
+                <div class="item">
+                  <div class="controls">
+                    <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Rotate the object</h4>
+                    <button type="button" class="pad-bottom" id="increaseXrotation">X +</button>
+                    <button type="button" class="pad-bottom" id="decreaseXrotation">X -</button><br>
+                    <button type="button" class="pad-bottom" id="increaseYrotation">Y +</button>
+                    <button type="button" class="pad-bottom" id="decreaseYrotation">Y -</button><br>
+                    <button type="button" class="pad-bottom" id="increaseZrotation">Z +</button>
+                    <button type="button" class="pad-bottom" id="decreaseZrotation">Z -</button>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="controls">
+                    <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Translate the object</h4>
+                    <button type="button" class="pad-bottom" id="increaseXposition">X +</button>
+                    <button type="button" class="pad-bottom" id="decreaseXposition">X -</button><br>
+                    <button type="button" class="pad-bottom" id="increaseYposition">Y +</button>
+                    <button type="button" class="pad-bottom" id="decreaseYposition">Y -</button><br>
+                    <button type="button" class="pad-bottom" id="increaseZposition">Z +</button>
+                    <button type="button" class="pad-bottom" id="decreaseZposition">Z -</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container">
+
+                <div class="item">
+                  <div class="controls">
+                    <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Scale the object</h4>
+                    <table class="center">
+                      <tr>
+                        <td>X Scale&nbsp;</td>
+                        <td><input type="text" id="xscale"></td>
+                      </tr>
+                      <tr>
+                        <td>Y Scale&nbsp;</td>
+                        <td><input type="text" id="yscale"></td>
+                      </tr>
+                      <tr>
+                        <td>Z Scale&nbsp;</td>
+                        <td><input type="text" id="zscale"></td>
+                      </tr>
+                    </table>
+                    <div class="controls">
+                      <button type="button" class="pad-bottom" id="applyScale">Apply Scale</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="controls">
+                    <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Shear the object</h4>
+                    <button type="button" class="pad-bottom" id="increaseXshear">X +</button>
+                    <button type="button" class="pad-bottom" id="decreaseXshear">X -</button><br>
+                    <button type="button" class="pad-bottom" id="increaseYshear">Y +</button>
+                    <button type="button" class="pad-bottom" id="decreaseYshear">Y -</button><br>
+                    <button type="button" class="pad-bottom" id="increaseZshear">Z +</button>
+                    <button type="button" class="pad-bottom" id="decreaseZshear">Z -</button>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="controls">
+                <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Animate the object</h4>
+                <button type="button" class="pad-bottom" id="toggleXRotation">Toggle X Rotation</button>
+                <button type="button" class="pad-bottom" id="toggleYRotation">Toggle Y Rotation</button>
+                <button type="button" class="pad-bottom" id="toggleZRotation">Toggle Z Rotation</button>
+              </div>
+
+              <div class="controls">
+                <h4 style="padding-bottom:3px; margin-bottom:0; padding-top:0; margin-top:0;">Clear the canvas</h4>
+                <button type="button" id="remove-selected">Clear Selected</button>
+                <button type="button" id="remove-all">Clear All</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <script src="three.js"></script>
+  <script src="Detector.js"></script>
+  <script src="draw.js"></script>
+  <script src="utils.js"></script>
+</body>
+
+</html>
