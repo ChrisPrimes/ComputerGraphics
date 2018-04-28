@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title>Create Group</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="blue text-center">
+  <h2 class="text-center">Create Group</h2>
+  <div class="helptext">Select multiple objects (<span class="bold highlight">CTRL + Click</span> on Windows and <span class="bold highlight">&#8984; + Click</span> on Mac) and enter a nickname to move them into a combined group.</div>
+
+  <div class="controls">
+    <select multiple id="chooseObjGroup">
+      </select>
+  </div>
+
+  <div class="controls">
+    <div style="padding-bottom:5px;">Nickname:</div><input type="text" id="nickname" class="longer">
+  </div>
+
+  <div class="controls">
+    <button type="button" id="submitCreateGroup">Create Group</button>
+  </div>
+</body>
+
+</html>
